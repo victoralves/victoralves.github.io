@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>Victor Alves</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="../favicon.png"> 
+    
+    <!-- FontAwesome JS-->
+	<script defer src="../assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="../assets/css/theme-1.css">
+
+    <!-- Outros ajustes CSS -->  
+    <link id="theme-style" rel="stylesheet" href="../assets/css/util.css">
+    
+
+</head> 
+
+<body>
+    
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Victor Alves</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="../assets/images/VictorAlves.JPG" alt="image" >			
+					
+					<div class="bio mb-3"><i>"Hello, World"</i><br> Cientista da Computação pela <a title="Universidade Veiga de Almeida">UVA</a> com passagens em Pós-Graduações pela <a title="Universidade Federal Fluminense">UFF</a> e <a title="Universidade Federal do Rio de Janeiro">UFRJ</a>. Em constante estudo por novos conhecimentos e aprimoramento.
+					</div>
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a href="https://twitter.com/VictorA10894058" target="_blank" title=" Twitter "><i class="fab fa-twitter fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.linkedin.com/in/victor-alves-18386241/" target="_blank" title=" Linkedin "><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://github.com/victoralves" target="_blank" title=" GitHub "><i class="fab fa-github-alt fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.instagram.com/victor.alves.rj/?hl=pt-br" target="_blank" title=" Instagram "><i class="fab fa-instagram fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100013570984800" target="_blank" title=" Facebook "><i class="fab fa-facebook fa-fw"></i></a></li>
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+
+
+				<!-- <ul class="navbar-nav flex-column text-left">
+					<li class="nav-item">
+					    <a class="nav-link" href="../"><i class="fas fa-home fa-fw mr-2"></i>Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item active">
+					    <a class="nav-link" href="blog-post.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Post</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw mr-2"></i>Sobre mim</a>
+					</li>
+				</ul> -->
+				
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper" id="inicio">
+	    
+	    <article class="blog-post px-3 py-5 p-md-5">
+		    <div class="container">
+			    <header class="blog-post-header">
+				    <h2 class="title mb-2">Extraindo dados do e-mail com Pentaho - Spoon</h2>
+				    <div class="meta mb-3"><span class="date">Publicado em Maio de 2020</span></div>
+			    </header>
+			    
+			    <div class="blog-post-body">
+				    <figure class="blog-banner">
+				        <a href="https://community.hitachivantara.com/s/article/data-integration-kettle" target="_blank"><img class="img-fluid" src="../assets/images/blog/pentahoHW.jpg" alt="image"></a>
+				        <figcaption class="mt-2 text-center image-caption">Fonte: <a href="https://www.hitachivantara.com" target="_blank">https://www.hitachivantara.com</a></figcaption>
+				    </figure>
+                    <p class="textjustify">Essa é sem dúvida uma das <i>"ferramentas"</i> mais importantes pra quem constantemente precisa obter dados em uma ponta, tratar e depois dar saída em outra ponta ou outras pontas. Quem já precisou fazer isso desenvolvendo em alguma linguagem de programação, sabe muito bem como é dispendioso a criação de um ETL (Extract, Transform and Load).</p>
+                    
+                    <p class="textjustify">Neste artigo vamos direto ao ponto! Minha intenção é ajudar sem oculpar seu tempo com informações que podem ser encontradas na internet fazendo uma simples busca. Primeiro faremos o <i>briefing</i> para relatar o problema e nossa missão, depois passaremos a execução e por fim, teremos o <i>debriefing</i>, onde relataremos a execução da tarefa.</p>
+
+                    <p class="textjustify">Para saber mais detalhes dos <i>step</i> ou outras informações, recomendo buscar na internet ou entrar em contato comigo, terei o maior prazer em ajudar.</p>
+                    
+				    <h3 class="mt-5 mb-3" id="briefing">Briefing</h3>
+					<p class="textjustify"> Temos o seguinte caso: nosso antigo sistema recebia as solicitações dos usuários apenas por e-mail, com a troca do sistema, não podemos perder o legado, então vamos criar um ETL para acessar as contas de e-mail e salvar as informações no banco de dados, cada campo do formulário corresponde a uma coluna na tabela. </p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/form.PNG" alt="Figura 1 - Formulário de Solicitação">
+				        <figcaption class="mt-2 text-center image-caption">Figura 1 - Formulário de Solicitação</figcaption>
+					</figure>					
+
+                    <h3 class="mt-5 mb-3">Executando</h3>
+					<p class="textjustify" id="1"> 1.&ordm; Transformação:</p>
+					<p class="textjustify"> Abra uma nova transformação e salve com o nome que quiser:</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/criandoTransformacao.PNG" alt="Figura 2 - Criando nova Transformação">
+				        <figcaption class="mt-2 text-center image-caption">Figura 2 - Criando nova Transformação</figcaption>
+					</figure>
+					
+					<p class="textjustify" id="2"> 2&ordm; Adicionando <i>step</i> para conectar a caixa de e-mail:</p>
+					<p class="textjustify"> Nos <i>steps</i> de <i>Input</i> adicione o <u>Email messages input</u>  a transformação.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/inputEmail.PNG" alt="Figura 3 - Adicionando Email messages input">
+				        <figcaption class="mt-2 text-center image-caption">Figura 3 - Adicionando Email messages input</figcaption>
+					</figure>
+					
+					<p class="textjustify"> 2.1&ordm; Configurando <i>step <u>Email messages input</u></i>:</p>
+					<p class="textjustify"><i>Obs.: Usaremos o Gmail, por este motivo, antes de continuar, você precisa configurar o Gmail para conseguir acesso. Acesse a conta do Gmail e busque por <b>Acesso a app menos seguro</b> está opção dever ser ativada.</i></p>
+					<p class="textjustify"> Para a conta do Gmail vamos usar IMAP, se você estiver usando outro correio, precisa ver quais as configurações da sua caixa de e-mail.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/configurandostepemail.PNG" alt="Figura 4 - Configurando Email messages input">
+				        <figcaption class="mt-2 text-center image-caption">Figura 4 - Configurando Email messages input</figcaption>
+					</figure>
+					
+					<p class="textjustify"> 2.2&ordm; Testando <i>step <u>Email messages input</u></i>:</p>
+					<p class="textjustify"> Com tudo preenchido podemos testar a conexão clicando em <i><u>Test connection</u></i>.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/configurandostepemail-testeconnection.PNG" alt="Figura 5 - Testando Email messages input">
+				        <figcaption class="mt-2 text-center image-caption">Figura 5 - Testando Email messages input</figcaption>
+					</figure>
+					
+					<p class="textjustify"> 2.3&ordm; Apontando o diretório da caixa de e-mail</u></i>:</p>
+					<p class="textjustify"> Agora vamos na aba <i>Settings</i> para apontar o diretório na caixa de e-mail.<br>Dentro de <i>Settings</i> clique onde está circulado em vermelho na imagem abaixo, para abrir a lista de diretórios da caixa de e-mail.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/configurandostepemail-apontaDiretorioPNG.PNG" alt="Figura 6 - Apontando deretório Email messages input">
+				        <figcaption class="mt-2 text-center image-caption">Figura 6 - Apontando deretório Email messages input</figcaption>
+					</figure>
+					
+					<p class="textjustify"> 2.4&ordm; Escolhendo campos da caixa de e-mail</u></i>:</p>
+					<p class="textjustify"> Vamos pular a aba <i>Filters</i> porque não vamos usar neste momento.<br> Passamos para <i>Fields</i>, onde você deve clicar em <b><i>Get fields</i></b> para pegar todos os campos do e-mail.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/configurandostepemail-camposDoEmail.PNG" alt="Figura 7 - Campos do e-mail Email messages input">
+				        <figcaption class="mt-2 text-center image-caption">Figura 7 - Campos do e-mail Email messages input</figcaption>
+					</figure>
+					
+					<p class="textjustify"> 2.5&ordm; Personalizando campos da caixa de e-mail</u></i>:</p>
+					<p class="textjustify"> Ainda em <i>Fields</i>, vou excluir todas as linhas, mantendo apenas o corpo da mensagem e vou criar o EMAIL_INTEGRAL atribuindo o corpo do e-mail.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/configurandostepemail-camposDoEmail-personalizados.PNG" alt="Figura 8 - Personalizando Campos do e-mail Email messages input">
+				        <figcaption class="mt-2 text-center image-caption">Figura 8 - Personalizando Campos do e-mail Email messages input</figcaption>
+					</figure>
+					
+					<p class="textjustify" id="3"> 3&ordm; Adicionando <i>step</i> de filtro</u></i>:</p>
+					<p class="textjustify"> Pesquise pelo <i>step <u>Filter rows</u></i> na aba de <i>Design</i>, depois "arraste" o <i>Filter rows</i> para o <i>canvas</i>. </p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/filterrows.PNG" alt="Figura 9 - Filtrando os e-mail's">
+				        <figcaption class="mt-2 text-center image-caption">Figura 9 - Filtrando os e-mail's</figcaption>
+					</figure>
+					
+					<p class="textjustify"> Ligando (<i>hop</i>) <i>step</i> @gmail ao <i>Filter rows</i></u></i>:</p>
+					<p class="textjustify"> Para tal, veja a forma mais simples: estando com o cursor em cima do <i>step</i> <u>@gmail</u>, clicar em "Shift" + botão esquerdo do <i>mouse</i> e levar o <i>hop</i> até o <i>step <u>Filter rows</u></i>.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/hop.PNG" alt="Figura 10 - Hop">
+				        <figcaption class="mt-2 text-center image-caption">Figura 10 - Hop</figcaption>
+					</figure>
+					
+					<p class="textjustify"> 3.1&ordm; Configurando <i>Filter rows</i></u></i>:</p>
+					<p class="textjustify"> Funciona como uma função lógica, o e-mail que tiver a expressão "O número de sua solicitação é:" passarão adiante.<br> <i>Filter rows</i> possui duas saídas, <i>True</i> e <i>False</i>, neste momento vamos aproveitar apenas a saída <i>True</i>, mas em alguns casos também aproveitamos a saída <i>False</i>.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/filterrows-config.PNG" alt="Figura 11 - Configurando Filter rows">
+				        <figcaption class="mt-2 text-center image-caption">Figura 11 - Configurando Filter rows</figcaption>
+					</figure>
+					
+					<p class="textjustify" id="4"> 4&ordm; Pegando os campos que nos interessam usando <i>Replace in string</i></u></i>:</p>
+					<p class="textjustify"> Aqui vamos usar expressão regular para encontrar as informações que estamos querendo dentro do body. <i>Obs.: Lembre-se que o Spoon foi desenvolvido em Java, então você precisa usar a expressão regular do Java.</i></p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/regex.PNG" alt="Figura 12 - Configurando Replace in string">
+				        <figcaption class="mt-2 text-center image-caption">Figura 12 - Configurando Replace in string</figcaption>
+					</figure>
+					
+					<p class="textjustify" id="5"> 5&ordm; Adicionando os valores que pegamos na transformação anterior e adicionando aos campos que estão nos <i>Fields</i> do <i>Split</i></u></i> separando por "|":</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/split.PNG" alt="Figura 13 - Configurando Replace in string">
+				        <figcaption class="mt-2 text-center image-caption">Figura 13 - Configurando Split fields</figcaption>
+					</figure>
+					
+					<p class="textjustify" id="6"> 6&ordm; Cadastrando as informações no Banco de Dados <i>Table output</i></u></i>:</p>
+					<p class="textjustify"> Adicione o <i>step <u>Table output</u></i> depois ligue o <i>hop</i> nele e faça as configurações de banco de dados. Não precisaremos usar a aba <i>Main options</i> usaremos apenas a <i>Database fields</i>. Clique em <i>SQL</i> para gerar o <i>CREATE TABLE</i> usando os campos do fluxo (figura 14), depois basta clicar em Executar para o Pentaho criar a tabela no seu Banco de Dados. Tenha atenção com os tipos do campos que o Pentaho vai declarar na sua tabela, você pode mudar isso antes de executar.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/tabelaBD.PNG" alt="Figura 14 - Configurando Replace in string">
+				        <figcaption class="mt-2 text-center image-caption">Figura 14 - Configurando Table output</figcaption>
+					</figure>
+
+					<p class="textjustify"> Essa é a tela que será apresentada para o Pentaho criar a tabela com os campos do fluxo. Você pode editar qualquer campos antes de executar.</p>					
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/createTable.PNG" alt="Figura 15 - Executando CREATE TABLE">
+				        <figcaption class="mt-2 text-center image-caption">Figura 15 - Executando <i>CREATE TABLE</i></figcaption>
+					</figure>
+
+				    <h3 class="mt-5 mb-3" id="debriefing">Debriefing</h3>					
+					<p class="textjustify"> Conseguimos resolver o problema <i class='far fa-smile-wink'></i></p>										
+					<p class="textjustify"> Toda tarefa simples no PDI Spoon é complexa, mas vale muito a pena se você analizar todo o código que você teria que programar pra fazer algo semelhante. Sem contar que a manutenção fica muito mais amigável. Você não precisa ser desenvolvedor para usar o Spoon, mas dependendo da tarefa, isso será muito útil.</p>		
+					<p class="textjustify"> Sem dúvida a parte mais desgastante aconteceu no <i>step <u>Replace in String</u></i>, precisei relembrar os códigos do regex para Java. Os outros <i>steps</i> são bem simples, basta apenas saber o que realmente quer.</p>
+					<p class="textjustify"> No próximo artigo vou mostrar como fazer essa tarefa ser disparada automaticamente, enviando um relatório no final da tarefa. </p>
+				   
+			    </div>
+				    				
+	    </article>
+	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">Se gostou do template, ele foi desenvolvido por <a href="https://themes.3rdwavemedia.com/bootstrap-templates/speciality/devblog-free-bootstrap-4-blog-template-for-developers/" target="_blank">Xiaoying Riley</a> </small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+    
+
+    <div id="config-panel" class="config-panel d-none d-lg-block" style="position: fixed;">
+        <div class="panel-inner">
+            <a id="config-trigger" class="config-trigger config-panel-hide text-center" href="#"><i class="fas fa-link mx-auto" data-fa-transform="down-6" ></i></a>
+            <h5 class="panel-title">Navegação</h5>
+            <ul class="nav">
+				<li style="padding-right: 50px;"><i class="fa fa-caret-right" aria-hidden="true"></i> <a href="#inicio" class="menulink">Início</a></li>
+				<li><i class="fa fa-caret-right" aria-hidden="true"></i> <a href="#briefing" class="menulink">Briefing</a></li>
+				<li>1. <a href="#1" class="menulink">Transformação</a></li>
+				<li>2. <a href="#2" class="menulink">Email messages input</a></li>
+				<li>3. <a href="#3" class="menulink">Filter rows</a></li>
+				<li>4. <a href="#4" class="menulink">Replace in string</a></li>
+				<li>5. <a href="#5" class="menulink">Split fields</a></li>
+				<li>6. <a href="#6" class="menulink">Table output</a></li>
+				<li><i class="fa fa-caret-right" aria-hidden="true"></i> <a href="#debriefing" class="menulink">Debriefing</a></li>
+			</ul>
+            <a id="config-close" class="close" href="#"><i class="fa fa-times-circle"></i></a>
+        </div><!--//panel-inner-->
+    </div><!--//configure-panel-->
+
+    
+       
+    <!-- Javascript -->          
+    <script src="../assets/plugins/jquery-3.4.1.min.js"></script>
+    <script src="../assets/plugins/popper.min.js"></script> 
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+    
+    <!-- Page Specific JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../assets/js/blog.js"></script>
+    
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="../assets/js/demo/style-switcher.js"></script>     
+    
+</body>
+</html> 
+
