@@ -39,7 +39,7 @@
 
 			<div id="navigation" class="collapse navbar-collapse flex-column" >
 				<div class="profile-section pt-3 pt-lg-0">
-				    <img class="profile-image mb-3 rounded-circle mx-auto" src="img/VictorAlves.jpg" alt="image" >			
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="./img/VictorAlves.jpg" alt="image" >			
 					
 					<div class="bio mb-3"><i>"Hello, World"</i><br> Cientista da Computação pela <a title="Universidade Veiga de Almeida">UVA</a> com passagens em Pós-Graduações pela <a title="Universidade Federal Fluminense">UFF</a> e <a title="Universidade Federal do Rio de Janeiro">UFRJ</a>. Em constante estudo por novos conhecimentos e aprimoramento.
 					</div>
@@ -54,17 +54,11 @@
 				</div><!--//profile-section-->
 
 
-				<!-- <ul class="navbar-nav flex-column text-left">
-					<li class="nav-item">
-					    <a class="nav-link" href="../"><i class="fas fa-home fa-fw mr-2"></i>Home <span class="sr-only">(current)</span></a>
-					</li>
+				<ul class="navbar-nav flex-column text-left">
 					<li class="nav-item active">
-					    <a class="nav-link" href="blog-post.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Post</a>
+					    <a class="nav-link" href="blog-post.html"><i class="fas fa-rss fa-fw mr-2"></i>Próximo artigo: <br>Como executar esse ETL em dias e horários específicos enviando relatórios no final da execução.</a>
 					</li>
-					<li class="nav-item">
-					    <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw mr-2"></i>Sobre mim</a>
-					</li>
-				</ul> -->
+				</ul>
 				
 			</div>
 		</nav>
@@ -97,22 +91,22 @@
 				        <figcaption class="mt-2 text-center image-caption">Figura 1 - Formulário de Solicitação</figcaption>
 					</figure>					
 
-                    <h3 class="mt-5 mb-3">Executando</h3>
-					<p class="textjustify" id="1"> 1.&ordm; Transformação:</p>
+					<h3 class="mt-5 mb-3">Executando</h3>
+					<h5 class="mt-5 mb-3" id="1">1.&ordm; Transformação</h5>
 					<p class="textjustify"> Abra uma nova transformação e salve com o nome que quiser:</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/criandoTransformacao.PNG" alt="Figura 2 - Criando nova Transformação">
 				        <figcaption class="mt-2 text-center image-caption">Figura 2 - Criando nova Transformação</figcaption>
 					</figure>
 					
-					<p class="textjustify" id="2"> 2&ordm; Adicionando <i>step</i> para conectar a caixa de e-mail:</p>
+					<h5 class="mt-5 mb-3" id="2"> 2&ordm; Adicionando <i>step</i> para conectar a caixa de e-mail</h5>
 					<p class="textjustify"> Nos <i>steps</i> de <i>Input</i> adicione o <u>Email messages input</u>  a transformação.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/inputEmail.PNG" alt="Figura 3 - Adicionando Email messages input">
 				        <figcaption class="mt-2 text-center image-caption">Figura 3 - Adicionando Email messages input</figcaption>
 					</figure>
 					
-					<p class="textjustify"> 2.1&ordm; Configurando <i>step <u>Email messages input</u></i>:</p>
+					<h6 class="mt-5 mb-3"> 2.1&ordm; Configurando <i>step <u>Email messages input</u></i></h6>
 					<p class="textjustify"><i>Obs.: Usaremos o Gmail, por este motivo, antes de continuar, você precisa configurar o Gmail para conseguir acesso. Acesse a conta do Gmail e busque por <b>Acesso a app menos seguro</b> está opção dever ser ativada.</i></p>
 					<p class="textjustify"> Para a conta do Gmail vamos usar IMAP, se você estiver usando outro correio, precisa ver quais as configurações da sua caixa de e-mail.</p>
 					<figure class="blog-banner">
@@ -120,35 +114,35 @@
 				        <figcaption class="mt-2 text-center image-caption">Figura 4 - Configurando Email messages input</figcaption>
 					</figure>
 					
-					<p class="textjustify"> 2.2&ordm; Testando <i>step <u>Email messages input</u></i>:</p>
+					<h6 class="textjustify"> 2.2&ordm; Testando <i>step <u>Email messages input</u></i></h6>
 					<p class="textjustify"> Com tudo preenchido podemos testar a conexão clicando em <i><u>Test connection</u></i>.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/configurandostepemail-testeconnection.PNG" alt="Figura 5 - Testando Email messages input">
 				        <figcaption class="mt-2 text-center image-caption">Figura 5 - Testando Email messages input</figcaption>
 					</figure>
 					
-					<p class="textjustify"> 2.3&ordm; Apontando o diretório da caixa de e-mail</u></i>:</p>
+					<h6 class="textjustify"> 2.3&ordm; Apontando o diretório da caixa de e-mail</u></i></h6>
 					<p class="textjustify"> Agora vamos na aba <i>Settings</i> para apontar o diretório na caixa de e-mail.<br>Dentro de <i>Settings</i> clique onde está circulado em vermelho na imagem abaixo, para abrir a lista de diretórios da caixa de e-mail.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/configurandostepemail-apontaDiretorioPNG.PNG" alt="Figura 6 - Apontando deretório Email messages input">
 				        <figcaption class="mt-2 text-center image-caption">Figura 6 - Apontando deretório Email messages input</figcaption>
 					</figure>
 					
-					<p class="textjustify"> 2.4&ordm; Escolhendo campos da caixa de e-mail</u></i>:</p>
+					<h6 class="textjustify"> 2.4&ordm; Escolhendo campos da caixa de e-mail</u></i></h6>
 					<p class="textjustify"> Vamos pular a aba <i>Filters</i> porque não vamos usar neste momento.<br> Passamos para <i>Fields</i>, onde você deve clicar em <b><i>Get fields</i></b> para pegar todos os campos do e-mail.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/configurandostepemail-camposDoEmail.PNG" alt="Figura 7 - Campos do e-mail Email messages input">
 				        <figcaption class="mt-2 text-center image-caption">Figura 7 - Campos do e-mail Email messages input</figcaption>
 					</figure>
 					
-					<p class="textjustify"> 2.5&ordm; Personalizando campos da caixa de e-mail</u></i>:</p>
+					<h6 class="textjustify"> 2.5&ordm; Personalizando campos da caixa de e-mail</u></i></h6>
 					<p class="textjustify"> Ainda em <i>Fields</i>, vou excluir todas as linhas, mantendo apenas o corpo da mensagem e vou criar o EMAIL_INTEGRAL atribuindo o corpo do e-mail.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/configurandostepemail-camposDoEmail-personalizados.PNG" alt="Figura 8 - Personalizando Campos do e-mail Email messages input">
 				        <figcaption class="mt-2 text-center image-caption">Figura 8 - Personalizando Campos do e-mail Email messages input</figcaption>
 					</figure>
 					
-					<p class="textjustify" id="3"> 3&ordm; Adicionando <i>step</i> de filtro</u></i>:</p>
+					<h5 class="mt-5 mb-3" id="3"> 3&ordm; Adicionando <i>step</i> de filtro</u></i></h5>				
 					<p class="textjustify"> Pesquise pelo <i>step <u>Filter rows</u></i> na aba de <i>Design</i>, depois "arraste" o <i>Filter rows</i> para o <i>canvas</i>. </p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/filterrows.PNG" alt="Figura 9 - Filtrando os e-mail's">
@@ -162,27 +156,27 @@
 				        <figcaption class="mt-2 text-center image-caption">Figura 10 - Hop</figcaption>
 					</figure>
 					
-					<p class="textjustify"> 3.1&ordm; Configurando <i>Filter rows</i></u></i>:</p>
+					<h6 class="textjustify"> 3.1&ordm; Configurando <i>Filter rows</i></u></i></h6>
 					<p class="textjustify"> Funciona como uma função lógica, o e-mail que tiver a expressão "O número de sua solicitação é:" passarão adiante.<br> <i>Filter rows</i> possui duas saídas, <i>True</i> e <i>False</i>, neste momento vamos aproveitar apenas a saída <i>True</i>, mas em alguns casos também aproveitamos a saída <i>False</i>.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/filterrows-config.PNG" alt="Figura 11 - Configurando Filter rows">
 				        <figcaption class="mt-2 text-center image-caption">Figura 11 - Configurando Filter rows</figcaption>
 					</figure>
-					
-					<p class="textjustify" id="4"> 4&ordm; Pegando os campos que nos interessam usando <i>Replace in string</i></u></i>:</p>
+
+					<h5 class="mt-5 mb-3" id="4"> 4&ordm; Pegando os campos que nos interessam usando <i>Replace in string</i></u></i></h5>
 					<p class="textjustify"> Aqui vamos usar expressão regular para encontrar as informações que estamos querendo dentro do body. <i>Obs.: Lembre-se que o Spoon foi desenvolvido em Java, então você precisa usar a expressão regular do Java.</i></p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/regex.PNG" alt="Figura 12 - Configurando Replace in string">
 				        <figcaption class="mt-2 text-center image-caption">Figura 12 - Configurando Replace in string</figcaption>
 					</figure>
 					
-					<p class="textjustify" id="5"> 5&ordm; Adicionando os valores que pegamos na transformação anterior e adicionando aos campos que estão nos <i>Fields</i> do <i>Split</i></u></i> separando por "|":</p>
+					<h5 class="mt-5 mb-3" id="5"> 5&ordm; Adicionando os valores que pegamos na transformação anterior e adicionando aos campos que estão nos <i>Fields</i> do <i>Split</i></u></i> separando por "|"</h5>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/split.PNG" alt="Figura 13 - Configurando Replace in string">
 				        <figcaption class="mt-2 text-center image-caption">Figura 13 - Configurando Split fields</figcaption>
 					</figure>
 					
-					<p class="textjustify" id="6"> 6&ordm; Cadastrando as informações no Banco de Dados <i>Table output</i></u></i>:</p>
+					<h5 class="mt-5 mb-3" id="6"> 6&ordm; Cadastrando as informações no Banco de Dados <i>Table output</i></u></i></h5>
 					<p class="textjustify"> Adicione o <i>step <u>Table output</u></i> depois ligue o <i>hop</i> nele e faça as configurações de banco de dados. Não precisaremos usar a aba <i>Main options</i> usaremos apenas a <i>Database fields</i>. Clique em <i>SQL</i> para gerar o <i>CREATE TABLE</i> usando os campos do fluxo (figura 14), depois basta clicar em Executar para o Pentaho criar a tabela no seu Banco de Dados. Tenha atenção com os tipos do campos que o Pentaho vai declarar na sua tabela, você pode mudar isso antes de executar.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/tabelaBD.PNG" alt="Figura 14 - Configurando Replace in string">
@@ -197,9 +191,8 @@
 
 				    <h3 class="mt-5 mb-3" id="debriefing">Debriefing</h3>					
 					<p class="textjustify"> Conseguimos resolver o problema <i class='far fa-smile-wink'></i></p>										
-					<p class="textjustify"> Toda tarefa simples no PDI Spoon é complexa, mas vale muito a pena se você analizar todo o código que você teria que programar pra fazer algo semelhante. Sem contar que a manutenção fica muito mais amigável. Você não precisa ser desenvolvedor para usar o Spoon, mas dependendo da tarefa, isso será muito útil.</p>		
-					<p class="textjustify"> Sem dúvida a parte mais desgastante aconteceu no <i>step <u>Replace in String</u></i>, precisei relembrar os códigos do regex para Java. Os outros <i>steps</i> são bem simples, basta apenas saber o que realmente quer.</p>
-					<p class="textjustify"> No próximo artigo vou mostrar como fazer essa tarefa ser disparada automaticamente, enviando um relatório no final da tarefa. </p>
+					<p class="textjustify"> Toda tarefa simples no PDI Spoon é complexa, mas vale muito a pena se você analizar todo código que você precisaria programar pra fazer algo semelhante (já precisei fazer inúmeras vezes e sei bem como é <i class='far fa-frown'></i>). A manutenção fica muito mais amigável. Você não precisa ser desenvolvedor para usar o Spoon, mas dependendo da tarefa, isso será muito útil.</p>		
+					<p class="textjustify"> Sem dúvida, a parte mais desgastante aconteceu no <i>step <a href="#4" class="menulink" style="color: black;"><u>Replace in String</u></a></i>, precisei relembrar expressão regular (lembrando que é regex para Java <i>cafézinho</i>). Os outros <i>steps</i> são bem simples, basta apenas saber o que realmente quer.</p>
 				   
 			    </div>
 				    				
