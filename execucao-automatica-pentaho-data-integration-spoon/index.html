@@ -67,13 +67,7 @@
 
 				<ul class="navbar-nav flex-column text-left">
 					<li class="nav-item">
-					    <a class="nav-link" href="index.html"><i class="fas fa-home fa-fw mr-2"></i>Home <span class="sr-only">(current)</span></a>
-					</li>
-					<li class="nav-item">
-					    <a class="nav-link" href="blog-post.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Post</a>
-					</li>
-					<li class="nav-item">
-					    <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw mr-2"></i>Sobre mim</a>
+					    <a class="nav-link" href="../"><i class="fas fa-home fa-fw mr-2"></i>Home <span class="sr-only">(current)</span></a>
 					</li>
 				</ul>
 				
@@ -86,7 +80,7 @@
 	    <article class="blog-post px-3 py-5 p-md-5">
 		    <div class="container">
 			    <header class="blog-post-header">
-				    <h2 class="title mb-2">Executar ETL do Pentaho de forma programada</h2>
+				    <h2 class="title mb-2">Automatizando execução do ETL no Pentaho </h2>
 				    <div class="meta mb-3"><span class="date">Publicado em Maio de 2020</span></div>
 			    </header>
 			    
@@ -109,28 +103,28 @@
 					</figure>					
 
 					<h3 class="mt-5 mb-3">Executando</h3>
-					<h5 class="mt-5 mb-3" id="1">1.&ordm; Job</h5>
+					<h5 class="mt-5 mb-3" id="1">1.&ordm; Criando o Job</h5>
 					<p class="textjustify"> Abra o Job e salve com o nome que quiser:</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/newjob.png" alt="Figura 2 - Criando nova Transformação">
 				        <figcaption class="mt-2 text-center image-caption">Figura 2 - Criando novo Job</figcaption>
 					</figure>
 					
-					<h5 class="mt-5 mb-3" id="2"> 2&ordm; Adicionando <i>Start</i> para iniciar o Job</h5>
+					<h5 class="mt-5 mb-3" id="2"> 2&ordm; Adicionando o <i>Start</i></h5>
 					<p class="textjustify"> É através do <i>Start</i> que o <i>Job</i> deve começar sempre</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/start.PNG" alt="Figura 3 - Start">
 				        <figcaption class="mt-2 text-center image-caption">Figura 3 - <i>Start</i></figcaption>
 					</figure>
 					
-					<h6 class="mt-5 mb-3"> 2.1&ordm; Configurando <i>Start</i></h6>
+					<h6 class="mt-5 mb-3" id="21"> 2.1&ordm; Configurando <i>Start</i></h6>
 					<p class="textjustify"> No <i>Start</i> você pode configurar quando o <i>Job</i> será executado. No nosso caso vamos configurar de outra forma, criando um .bat e um agendador com mais recursos.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/startConfiguracoes.PNG" alt="Figura 4 - Configuração do Start">
 				        <figcaption class="mt-2 text-center image-caption">Figura 4 - Configuração do <i>Start</i></figcaption>
 					</figure>
 					
-					<h6 class="mt-5 mb-3"> 3&ordm; Iniciando a transformação</h6>
+					<h6 class="mt-5 mb-3" id="3"> 3&ordm; Executando transformação</h6>
 					<p class="textjustify">Adicionando o <i>step Transformation</i> onde iremos apontar para o <i>Job</i> qual transformação deve ser iniciada. Após adicionar a <i>Transformation</i> vamos ligar o <i>Hop</i> (Figura 5.1).</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/transformation.png" alt="Figura 5 - Transformation">
@@ -141,7 +135,7 @@
 				        <figcaption class="mt-2 text-center image-caption">Figura 5.1 - <i>Hop</i> entre <i>Start</i> e <i>Transformation</i></figcaption>
 					</figure>
 					
-					<h6 class="textjustify"> 3.1&ordm; Configurando o <i>Transformation</i></h6>
+					<h6 class="textjustify" id="31"> 3.1&ordm; Configurando o <i>Transformation</i></h6>
 					<p class="textjustify"> Vamos apontar a transformação onde você pode ver em <u>SolicitacoesEmail.ktr</u> que é a transformação que criamos no <a href="./extraindo-dados-email-com-pentaho-data-integration-spoon/"><u>artigo anterior</u></a>. Quando vamos apontar a transformação, o ideal é deixar o caminho relativo, conforme fiz nessa demonstração, clicando em CTRL+Espaço você consegue alterar isso. Então se o nome do diretório mudar o nosso ETL não vai parar de funcionar. Siga as outras configurações conforme imagem abaixo.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/transformationConfiguracao.PNG" alt="Figura 6 - Configurando Transformation">
@@ -155,43 +149,43 @@
 					</figure>
 
 					
-					<h6 class="textjustify"> 4&ordm; E-mail de sucesso</h6>
+					<h6 class="textjustify" id="4"> 4&ordm; E-mail de sucesso</h6>
 					<p class="textjustify"> Adicionando o <i>step Mail</i> e ligar o <i>hop</i> entre as etapas. Após executar executar a <i>Transformation</i> vamos configurar o <i> Step Mail</i> para enviar um e-mail informando que foi executado com sucesso anexando o log da execução zipado.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/EmailSucesso.PNG" alt="Figura 7 - E-mail sucesso">
 				        <figcaption class="mt-2 text-center image-caption">Figura 7 - E-mail sucesso</figcaption>
 					</figure>
 					
-					<h6 class="textjustify"> 4.1&ordm; Configurando <i>step Mail</i></u></i></h6>
-					<h6 class="textjustify"> 4.1.1&ordm; Aba <i>Addresses</i></h6>					
+					<h6 class="textjustify" id="41"> 4.1&ordm; Configurando <i>step Mail</i></h6>
+					<h6 class="textjustify" id="411"> 4.1.1&ordm; Aba <i>Addresses</i></h6>					
 					<p class="textjustify"> Olhando a imagem você já deve notar como deve configurar essa etapa.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/EmailSucessoConfiguracao.PNG" alt="Figura 7.1 - Configurando e-mail de sucesso">
 				        <figcaption class="mt-2 text-center image-caption">Figura 7.1 - Configurando e-mail de sucesso</figcaption>
 					</figure>
 					
-					<h6 class="textjustify"> 4.1.2&ordm; Aba <i>Server</i></h6>
+					<h6 class="textjustify" id="412"> 4.1.2&ordm; Aba <i>Server</i></h6>
 					<p class="textjustify"> Veja sua configuração SMTP e configure.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/EmailSucessoConfiguracao2.PNG" alt="Figura 7.2 - Aba Server">
 				        <figcaption class="mt-2 text-center image-caption">Figura 7.2 - Aba Server</figcaption>
 					</figure>
 					
-					<h5 class="mt-5 mb-3" id="3"> 4.1.3&ordm; Aba <i>EMail Message</i></h5>
+					<h5 class="mt-5 mb-3" id="413"> 4.1.3&ordm; Aba <i>EMail Message</i></h5>
 					<p class="textjustify"> Além das configurações, você poderá incluir um assunto e mensagem para o e-mail.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/EmailSucessoConfiguracao3.PNG" alt="Figura 7.3 - Aba EMail Message">
 				        <figcaption class="mt-2 text-center image-caption">Figura 7.3 - Aba <i>EMail Message</i></figcaption>
 					</figure>
 
-					<h5 class="mt-5 mb-3" id="3"> 4.1.4&ordm; Aba <i>Attached Files</i></h5>
+					<h5 class="mt-5 mb-3" id="414"> 4.1.4&ordm; Aba <i>Attached Files</i></h5>
 					<p class="textjustify"> Vamos anexar o log.txt no e-mail.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/EmailSucessoConfiguracao4.PNG" alt="Figura 7.4 - Aba Attached Files">
 				        <figcaption class="mt-2 text-center image-caption">Figura 7.4 - Aba <i>Attached Files</i></figcaption>
 					</figure>
 					
-					<h6 class="textjustify"> 5&ordm; E-mail de erro</h6>
+					<h6 class="textjustify" id="5"> 5&ordm; E-mail de erro</h6>
 					<p class="textjustify"> Incluindo outro <i>step Mail</i>, agora para sermos avisados quando algo der errado na transformação.</p>
 					<p class="textjustify"> Ao ligar o <i>hop</i> entre os <i>steps</i> <u>SolicitacoesEmail</u> e <u>email ERRO</u> o <i>hop</i> de erro (vermelho com x) já deve ser mostrado, caso isso não ocorra, clique no <i>hop</i> até aparecer essa ligação.</p>
 					<p class="textjustify"> A configuração é igual ao <i>step</i> de sucesso, com a deferença que agora você estará avisando que algo deu errado na transformação, então tenha atenção no assunto e na mensagem que será disparada.</p>
@@ -200,7 +194,7 @@
 				        <figcaption class="mt-2 text-center image-caption">Figura 8 - E-mail de erro</figcaption>
 					</figure>
 
-					<h5 class="mt-5 mb-3" id="4"> 6&ordm; Automatizando o ETL</h5>
+					<h5 class="mt-5 mb-3" id="6"> 6&ordm; Automatizando o ETL</h5>
 					<p class="textjustify"> É possível executar diretamente a transformação através do Pan sem a necessidade de se usar o <i>Job</i>, você precisa analisar o que atende sua necessidade. Eu gosto de imaginar que o ETL pode crescer e ter a necessidade de conectar a outras transformações, então gosto de sempre criar o <i>Job</i>. Artigo oficial sobre Pan e Kitchen pode ser acessado <a href="https://help.pentaho.com/Documentation/7.0/0L0/0Y0/070" target="_blank">aqui</a>.</p>
 					<p class="textjustify"> Com a nossa transformação e <i>Job</i> completos, agora precisamos deixar esse ETL pra ser executado de forma automática, pra isso criaremos o <u>SolicitacoesEmail.bat</u> que irá acionar outro recurso do <i>Spoon</i> chamado <i>Kitchen</i> para executar nosso <i>Job</i> (<u>SolicitacoesEmail.kjb</u>).</p>
 					<figure class="blog-banner">
@@ -224,33 +218,33 @@ echo. >> %logfile%
 
 				<p class="textjustify"> Você pode clicar 2x nesse .bat pra testar se ele está executando o ETL. Antes de configurar o agendador.</p>				
 
-					<h5 class="mt-5 mb-3" id="5"> 7&ordm; Agendar execução do ETL</h5>
+					<h5 class="mt-5 mb-3" id="7"> 7&ordm; Agendar execução do ETL</h5>
 					<p class="textjustify">Estamos em ambiente Windows, então vamos usar o agendador nativo, mas recomendo usar o <a href="https://www.splinterware.com/products/scheduler.html" target="_blank">System Scheduler</a>.</p>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/taskschd.PNG" alt="Figura 10 - Agendador de tarefas do Windows">
 				        <figcaption class="mt-2 text-center image-caption">Figura 10 - Agendador de tarefas do Windows</figcaption>
 					</figure>
 					
-					<h5 class="mt-5 mb-3" id="6"> 7.1&ordm; Na pesquisa do Windows digite <i>taskschd.msc</i></h5>
+					<h5 class="mt-5 mb-3" id="71"> 7.1&ordm; Na pesquisa do Windows digite <i>taskschd.msc</i></h5>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/buscataskschd.PNG" alt="Figura 11 - Pesquisa com taskschd.msc">
 				        <figcaption class="mt-2 text-center image-caption">Figura 11 - Pesquisa com taskschd.msc</figcaption>
 					</figure>
 
-					<h5 class="mt-5 mb-3" id="6"> 7.2&ordm; Vá em Ação > Criar Tarefa...</h5>
+					<h5 class="mt-5 mb-3" id="72"> 7.2&ordm; Vá em Ação > Criar Tarefa...</h5>
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/taskschdCriarTarefa.png" alt="Figura 12 - Criar tarefa">
 				        <figcaption class="mt-2 text-center image-caption">Figura 12 - Criar tarefa</figcaption>
 					</figure>
 
-					<h5 class="mt-5 mb-3" id="6"> 7.3&ordm; Na aba Disparadores > Novo...</h5>
+					<h5 class="mt-5 mb-3" id="73"> 7.3&ordm; Na aba Disparadores > Novo...</h5>
 					<p class="textjustify"> Aqui você determina os dias e horários que deseja executar o ETL.</p>					
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/taskschdConfHoraDia.PNG" alt="Figura 13 - Configurar dia e Hora">
 				        <figcaption class="mt-2 text-center image-caption">Figura 13 - Configurar dia e Hora</figcaption>
 					</figure>
 
-					<h5 class="mt-5 mb-3" id="6"> 7.4&ordm; Mude para a aba Ações</h5>
+					<h5 class="mt-5 mb-3" id="74"> 7.4&ordm; Mude para a aba Ações</h5>
 					<p class="textjustify"> Em Programa/script coloque o caminho até <b><u>SolicitacoesEmail.bat</u></b></p>					
 					<figure class="blog-banner">
 				        <img class="img-fluid" src="./img/taskschdCaminhoBat.PNG" alt="Figura 14 - Apontando .bat">
@@ -282,12 +276,24 @@ echo. >> %logfile%
             <ul class="nav">
 				<li style="padding-right: 50px;"><i class="fa fa-caret-right" aria-hidden="true"></i> <a href="#inicio" class="menulink">Início</a></li>
 				<li><i class="fa fa-caret-right" aria-hidden="true"></i> <a href="#briefing" class="menulink">Briefing</a></li>
-				<li>1. <a href="#1" class="menulink">Transformação</a></li>
-				<li>2. <a href="#2" class="menulink">Email messages input</a></li>
-				<li>3. <a href="#3" class="menulink">Filter rows</a></li>
-				<li>4. <a href="#4" class="menulink">Replace in string</a></li>
-				<li>5. <a href="#5" class="menulink">Split fields</a></li>
-				<li>6. <a href="#6" class="menulink">Table output</a></li>
+				<li>1. <a href="#1" class="menulink">Criando o Job</a></li>
+				<li>2. <a href="#2" class="menulink">Adicionando o Start</a></li>
+				<li>2.1. <a href="#21" class="menulink">Configurando Start</a></li>
+				<li>3. <a href="#3" class="menulink">Executando transformação</a></li>
+				<li>3.1. <a href="#31" class="menulink">Configurando o <i>Transformation</i></a></li>
+				<li>4. <a href="#4" class="menulink">E-mail de sucesso</a></li>
+				<li>4.1. <a href="#41" class="menulink">Configurando <i>step Mail</i></a></li>
+				<li>4.1.1. <a href="#411" class="menulink">Aba <i>Addresses</i></a></li>
+				<li>4.1.2. <a href="#412" class="menulink">Aba <i>Server</i></a></li>
+				<li>4.1.3. <a href="#413" class="menulink">Aba <i>EMail Message</i></a></li>
+				<li>4.1.4. <a href="#414" class="menulink">Aba <i>Attached Files</i></a></li>
+				<li>5. <a href="#5" class="menulink">E-mail de erro</a></li>
+				<li>6. <a href="#6" class="menulink">Automatizando o ETL</a></li>
+				<li>7. <a href="#7" class="menulink">Agendar execução do ETL</a></li>
+				<li>7.1. <a href="#71" class="menulink">Na pesquisa do Windows digite <i>taskschd.msc</i></a></li>
+				<li>7.2. <a href="#72" class="menulink">Vá em Ação > Criar Tarefa...</a></li>
+				<li>7.3. <a href="#73" class="menulink">Na aba Disparadores > Novo...</a></li>
+				<li>7.4. <a href="#74" class="menulink">Mude para a aba Ações</a></li>
 				<li><i class="fa fa-caret-right" aria-hidden="true"></i> <a href="#debriefing" class="menulink">Debriefing</a></li>
 			</ul>
             <a id="config-close" class="close" href="#"><i class="fa fa-times-circle"></i></a>

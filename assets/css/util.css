@@ -8,3 +8,10 @@
 .menulink:hover{
     color: #FFF;
 }
+
+.afastamento{
+    margin-left: 140px;
+}
+.afastamento:hover{
+    margin-right: 15px;
+}
