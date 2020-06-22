@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>Victor Alves</title>
+    
+	<!-- Meta -->
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Recebendo Api REST com Pentaho - Spoon">
+	<meta name="author" content="Victor Alves">    
+	<meta property="og:title" content="Recebendo Api REST com Pentaho - Spoon"/>	
+	<meta property="og:type" content="article"/>	
+	<meta property="og:description" content="Recebendo Api REST com Pentaho - Spoon"/>	
+	<meta property="og:image" content="https://victoralves.github.io/assets/images/blog/pentahoHW.jpg"/>	
+	<meta property="og:url" content="https://victoralves.github.io/recebendo-api-rest-pentaho-data-integration-spoon"/>	
+	<meta property="og:site_name" content="Victor Alves"/>	
+	<meta name="twitter:card" content="summary">
+	<meta property="twitter:title" content="Recebendo Api REST com Pentaho - Spoon"/>	
+	<meta property="twitter:description" content="Recebendo Api REST com Pentaho - Spoon"/>	
+	<meta property="twitter:image" content="https://victoralves.github.io/assets/images/blog/pentahoHW.jpg"/>	
+	<meta property="twitter:url" content="https://victoralves.github.io/recebendo-api-rest-pentaho-data-integration-spoon"/>	
+
+    <link rel="shortcut icon" href="../favicon.png"> 
+    
+    <!-- FontAwesome JS-->
+	<script defer src="../assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css">
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="../assets/css/theme-1.css">
+
+    <!-- Outros ajustes CSS -->  
+    <link id="theme-style" rel="stylesheet" href="../assets/css/util.css">
+    
+
+</head> 
+
+<body>
+    
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="../">Victor Alves</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="../assets/images/VictorAlves.jpg" alt="Victor Alves" >			
+					
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a href="https://twitter.com/VictorA10894058" target="_blank" title=" Twitter "><i class="fab fa-twitter fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.linkedin.com/in/victor-alves-18386241/" target="_blank" title=" Linkedin "><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://github.com/victoralves" target="_blank" title=" GitHub "><i class="fab fa-github-alt fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.instagram.com/victor.alves.rj/?hl=pt-br" target="_blank" title=" Instagram "><i class="fab fa-instagram fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100013570984800" target="_blank" title=" Facebook "><i class="fab fa-facebook fa-fw"></i></a></li>
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+
+
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item">
+					    <a class="nav-link" href="../"><i class="fas fa-home fa-fw mr-2"></i>Home <span class="sr-only">(current)</span></a>
+					</li>					
+				</ul>
+				
+			</div>
+		</nav>
+    </header>
+    
+    <div class="main-wrapper" id="inicio">
+	    
+	    <article class="blog-post px-3 py-5 p-md-5">
+		    <div class="container">
+			    <header class="blog-post-header">
+				    <h2 class="title mb-2">Recebendo Api REST com Pentaho - Spoon</h2>
+				    <div class="meta mb-3"><span class="date">Publicado em Junho de 2020</span></div>
+			    </header>
+			    
+			    <div class="blog-post-body">
+				    <figure class="blog-banner">
+				        <img class="img-fluid" src="../assets/images/blog/api-rest-pentaho.png" alt="image">
+				        <figcaption class="mt-2 text-center image-caption">Fonte: Própria</figcaption>
+				    </figure>
+                    <p class="textjustify">Vou demonstrar como receber um serviço REST, usando campos vindos de um CSV, você pode subtituir o CSV por uma conexão a uma tabela no seu Banco de Dados, ou se o parâmetro passado ao Webservice for fixo, o mais recomendado é usar o <i>step Data Grid</i>. O corrêio possui um serviço, para pegar os endereços por CEP, mas é um pouco burocrático, então vamos usar um projeto gratuito (https://viacep.com.br/).</p>
+                    
+				    <h3 class="mt-5 mb-3" id="briefing">Briefing</h3>
+					<p class="textjustify"> Receberemos uma lista de CEPs, vindos de cep.csv vamos consulta um a um e dar saída no log da aplicação.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/1.PNG" alt="Figura 1 - Lista de CEPs em CSV">
+				        <figcaption class="mt-2 text-center image-caption">Figura 1 - Lista de CEPs em CSV</figcaption>
+					</figure>					
+
+					<h3 class="mt-5 mb-3">Executando</h3>
+					<h5 class="mt-5 mb-3" id="1">1.&ordm; Step do Input</h5>
+					<p class="textjustify"> Adiciona a entrada pra ler o cvs, vamos usar <i>Text file input</i></p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/2.PNG" alt="Figura 2 - Text file input">
+				        <figcaption class="mt-2 text-center image-caption">Figura 2 - Text file input</figcaption>
+					</figure>
+					
+					<h5 class="mt-5 mb-3" id="2"> 2&ordm; Inserindo CSV</i></h5>
+					<p class="textjustify"> Em <i>File or directory</i> coloque onde está o .csv e depois clica em Add para adicionar a lista, conforme a imagem abaixo. O mais aconselhaver é usar o caminho relativo <i>${Internal.Entry.Current.Directory}</i>. Usando as teclas Ctrl + Espaço você consegue localizar o <i>${Internal.Entry.Current.Directory}</i>.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/3.PNG" alt="Figura 3 - Adicionando o CSV ao ETL">
+				        <figcaption class="mt-2 text-center image-caption">Figura 3 - Adicionando o CSV ao ETL</figcaption>
+					</figure>
+					
+					<h6 class="mt-5 mb-3" id="21"> 2.1&ordm; Obtendo campos do CVS</h6>
+					<p class="textjustify">Não vamos mexer nas demais abas, por isso vou pular direto para a aba <i>Fields</i>. Nesta aba, clique em <u>Obtem campos</u>, neste momento o <i>Spoon</i> vai ler o csv e adicionar na lista.</p>					
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/4.PNG" alt="Figura 4 - Obtendo campo do cvs">
+				        <figcaption class="mt-2 text-center image-caption">Figura 4 - Obtendo campo do cvs</figcaption>
+					</figure>
+					<p class="textjustify">Também é possível clicar em <i><u>Preview rows</u></i> para verificar se o <i>Spoon</i> está lendo o arquivo corretamente.</p>					
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/5.PNG" alt="Figura 5 - Preview">
+				        <figcaption class="mt-2 text-center image-caption">Figura 5 - Preview</figcaption>
+					</figure>
+					
+					<h6 class="textjustify" id="3"> 3&ordm; Adicionando as constantes</h6>
+					<p class="textjustify"> Vamos adicionar as constantes: url e json, que serão endereço do serviço https e a segunda constante será o que virá após a nossa variável CEP. O serviço que vamos usar nessa demonstração, usa o seguinte formato: <u>Endereço(url)</u> <b>/</b> <u>cep</u> <b>/</b> <u>tipo(json)</u>.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/6.PNG" alt="Figura 6 - Adicionando as constantes">
+				        <figcaption class="mt-2 text-center image-caption">Figura 6 - Adicionando as constantes</figcaption>
+					</figure>
+					
+					<h6 class="textjustify" id="4"> 4&ordm; Concatenando campos</h6>
+					<p class="textjustify"> Adicionando <i>Calculator</i> para concatenar os campos. Lembra do formato no nosso serviço? Então o forma será <u>A</u> <b>/</b> <u>B</u> <b>/</b> <u>C</u> para montar nossa consulta a API. em <u>Novo campo</u> coloca o nome do campo que vai receber a concatenação, em <u>Cálculo</u> escolha a opção <u>A + B + C</u>, em <u>Campos A</u>, <u>Campos B</u> e <u>Campos C</u> será o formato usado pelo serviço, conforme esplanado anteriormente. Por último em <u>Tipo do valor</u> será <i>String</i> </p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/7.PNG" alt="Figura 7 - Concatenando">
+				        <figcaption class="mt-2 text-center image-caption">Figura 7 - Concatenando</figcaption>
+					</figure>
+					
+					<h6 class="textjustify" id="5"> 5&ordm; Consumindo serviço REST</h6>
+					<p class="textjustify"> Nesse <i>step</i> vamos consumir o serviço REST, só usaremos a primeira aba, pois o serviço é simples, sem a necessidade de qualquer proteção, como autenticação ou SSL.</p>
+					<p class="textjustify"> Siga a imagem abaixo. </i>Em <i>URL field name</i> vai entrar o nome do campo que irá receber a concatenação da etapa anterior. Em <i>Result field name</i> coloca o nome do campo que irá na saída.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/8.PNG" alt="Figura 8 - Consumindo REST">
+				        <figcaption class="mt-2 text-center image-caption">Figura 8 - Consumindo REST</figcaption>
+					</figure>
+					
+					<h6 class="textjustify" id="6"> 6&ordm; Recebendo o resultado</h6>
+						<p class="textjustify"> Agora vamos receber o resultado do serviço REST da etapa anterios.</p>						
+						<p class="textjustify"> Na primeira aba <i>File</i> em <i>Select field</i> escolha o nome do campo de saída que você colocou na etapa anterior (<i>REST client</i>)</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/9.PNG" alt="Figura 9 - Recebendo REST">
+				        <figcaption class="mt-2 text-center image-caption">Figura 9 - Recebendo REST</figcaption>
+					</figure>
+					<p class="textjustify"> Na aba Fields, vamos determinar quais campos queremos receber do serviço. Em <i>Name</i> escreva o nome que deseja dar para cada campo, em <i>Path</i> você precisa colocar "<b>$.</b>" seguido no nome que está vindo do serviço. O botão <u><i>Select fields</i></u> nem sempre funciona, então não se preocupe com isso.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/10.PNG" alt="Figura 10 - Determinando campos">
+				        <figcaption class="mt-2 text-center image-caption">Figura 10 - Determinando campos</figcaption>
+					</figure>
+					
+					<h6 class="mt-5 mb-3" id="7"> 7&ordm; Mostrando os resultados</h6>				
+					<p class="textjustify"> Vamos pegar nossa consulta ao serviço REST e jogar no log da aplicação. Você pode fazer isso para acompanhar o resultado antes de inputar na sua tabela ou em outro lugar. </p>
+					<p class="textjustify"> Clicando em <u>Obtem campos</u> todos os campos que serão apresentados no resultado será listado em <i>Field</i>, mas você pode excluir quantos quiser.</p>					
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/11.PNG" alt="Figura 11 - Escolhendo o que deseja ver no resultado">
+				        <figcaption class="mt-2 text-center image-caption">Figura 11 - Escolhendo o que deseja ver no resultado</figcaption>
+					</figure>
+										
+					<h6 class="textjustify" id="8"> 8&ordm; Executando o ETL</h6>
+					<p class="textjustify"> Ao executar o ETL, nosso resultado será mostrado na tela de <i>Logging</i> conforme as duas imagens a seguir.</p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/12.PNG" alt="Figura 12 - Resultado no Log">
+				        <figcaption class="mt-2 text-center image-caption">Figura 12 - Resultado no Log</figcaption>
+					</figure>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/13.PNG" alt="Figura 13 - Resultado no Log">
+				        <figcaption class="mt-2 text-center image-caption">Figura 13 - Resultado no Log</figcaption>
+					</figure>
+
+				    <h3 class="mt-5 mb-3" id="debriefing">Debriefing</h3>					
+					<p class="textjustify"> Conforme visto, podemos consumir e tratar um serviço REST sem grandes dificuldades, até mesmo se esta não for aberta, usando restrições de segurança. </p>
+					<figure class="blog-banner">
+				        <img class="img-fluid" src="./img/14.PNG" alt="Figura 14 - Steps">
+				        <figcaption class="mt-2 text-center image-caption">Figura 14 - Steps</figcaption>
+					</figure>
+				   
+					<a href="./arquivo.rar" download>Baixar arquivo .csv e .ktr</a>
+
+			    </div>
+									
+				
+
+
+	    </article>
+	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">Se gostou do template, ele foi desenvolvido por <a href="https://themes.3rdwavemedia.com/bootstrap-templates/speciality/devblog-free-bootstrap-4-blog-template-for-developers/" target="_blank">Xiaoying Riley</a> </small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+    
+
+    <div id="config-panel" class="config-panel d-none d-lg-block" style="position: fixed;">
+        <div class="panel-inner">
+            <a id="config-trigger" class="config-trigger config-panel-hide text-center" href="#"><i class="fas fa-link mx-auto" data-fa-transform="down-6" ></i></a>
+            <h5 class="panel-title">Navegação</h5>
+            <ul class="nav">
+				<li style="padding-right: 50px;"><i class="fa fa-caret-right" aria-hidden="true"></i> <a href="#inicio" class="menulink">Início</a></li>
+				<li><i class="fa fa-caret-right" aria-hidden="true"></i> <a href="#briefing" class="menulink">Briefing</a></li>
+				<li>1. <a href="#1" class="menulink">Step do Input</a></li>
+				<li>2. <a href="#2" class="menulink">Inserindo CSV</a></li>
+				<li>2.1 <a href="#21" class="menulink">Obtendo campos do CVS</a></li>
+				<li>3. <a href="#3" class="menulink">Adicionando as constantes</a></li>
+				<li>4. <a href="#4" class="menulink">Concatenando campos</a></li>
+				<li>5. <a href="#5" class="menulink">Consumindo serviço REST</a></li>
+				<li>6. <a href="#6" class="menulink">Recebendo o resultado</a></li>
+				<li>7. <a href="#7" class="menulink">Mostrando os resultados</a></li>
+				<li>8. <a href="#8" class="menulink">Executando o ETL</a></li>
+				<li><i class="fa fa-caret-right" aria-hidden="true"></i> <a href="#debriefing" class="menulink">Debriefing</a></li>
+			</ul>
+            <a id="config-close" class="close" href="#"><i class="fa fa-times-circle"></i></a>
+        </div><!--//panel-inner-->
+    </div><!--//configure-panel-->
+
+    
+       
+    <!-- Javascript -->          
+    <script src="../assets/plugins/jquery-3.4.1.min.js"></script>
+    <script src="../assets/plugins/popper.min.js"></script> 
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+    
+    <!-- Page Specific JS -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../assets/js/blog.js"></script>
+    
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="../assets/js/demo/style-switcher.js"></script>     
+    
+</body>
+</html> 
+
